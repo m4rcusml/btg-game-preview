@@ -64,35 +64,49 @@ class GameScene extends Phaser.Scene {
 
   create() {
     this.add.image(550, 260, 'bg-main');
-    this.add.image(550, 560, 'bg-task');
 
-    this.add.image(50, 560, 'logout-btn').setInteractive().on('pointerdown', () => {
-      this.scene.start('menu');
-    });
+    this.add.text(850, 20, 'Movimentação\n\n<-, ->: andar\nA, D: andar\nShift: caminhar\nSpace: pular', { fontSize: '24px', fill: '#ffffff' });
 
-    this.add.text(850, 20, 'Movimentação:\nSetas -> andar\nShift -> correr', { fontSize: '24px', fill: '#ffffff' });
+    this.player = this.physics.add.sprite(50, 440, 'player').setDisplaySize(64, 64);
+    this.player.setCollideWorldBounds(true);
 
-    player = this.add.image(50, 490, 'player').setDisplaySize(64, 64);
+    this.cursors = this.input.keyboard.createCursorKeys();
+
+    this.vel = 6;
+    this.extraVel = 8;
+    this.jumpCount = 0;
+
+    this.physics.world.setBounds(0, 0, 1100, 600);
+    this.player.setGravityY(300);
+
+    this.ground = this.physics.add.staticGroup();
+    this.ground.create(550, 575, 'bg-task').setDisplaySize(1100, 40).refreshBody();
+
+    this.physics.add.collider(this.player, this.ground);
   }
 
   update() {
-    let isRunning = this.input.keyboard.createCursorKeys().shift.isDown;
-    
-    if (this.input.keyboard.createCursorKeys().left.isDown && player.x > 25) {
-      player.x -= isRunning ? vel + extraVel : vel;
-      player.flipX = false;
-    } else if (this.input.keyboard.createCursorKeys().right.isDown && player.x < 1075) {
-      player.x += isRunning ? vel + extraVel : vel;
-      player.flipX = true;
+    let isRunning = !this.cursors.shift.isDown;
+
+    if (this.cursors.left.isDown) {
+      this.player.setVelocityX(isRunning ? -(this.vel + this.extraVel) * 20 : -this.vel * 20);
+      this.player.flipX = true;
+    } else if (this.cursors.right.isDown) {
+      this.player.setVelocityX(isRunning ? (this.vel + this.extraVel) * 20 : this.vel * 20);
+      this.player.flipX = false;
+    } else {
+      this.player.setVelocityX(0);
     }
 
-    if (this.input.keyboard.createCursorKeys().up.isDown && player.y > 35) {
-      player.y -= isRunning ? vel + extraVel : vel;
-      player.flipY = false;
-    } else if (this.input.keyboard.createCursorKeys().down.isDown && player.y < 490) {
-      player.y += isRunning ? vel + extraVel : vel;
-      player.flipY = true;
+    if (Phaser.Input.Keyboard.JustDown(this.cursors.space) && this.jumpCounting < 2) {
+      this.player.setVelocityY(-350);
+      this.jumpCounting++;
     }
+
+    if (this.player.body.blocked.down) {
+      this.jumpCounting = 0;
+    }
+
   }
 }
 
@@ -100,10 +114,14 @@ const config = {
   type: Phaser.AUTO,
   width: 1100,
   height: 600,
-  scene: [MenuScene, GameScene]
+  scene: [MenuScene, GameScene],
+  physics: {
+    default: 'arcade',
+    arcade: {
+      gravity: { y: 500 },
+      debug: false
+    }
+  }
 };
 
 const game = new Phaser.Game(config);
-const vel = 5;
-const extraVel = 5;
-var player = null;
