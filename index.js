@@ -70,23 +70,27 @@ class GameScene extends Phaser.Scene {
       this.scene.start('menu');
     });
 
+    this.add.text(850, 20, 'Movimentação:\nSetas -> andar\nShift -> correr', { fontSize: '24px', fill: '#ffffff' });
+
     player = this.add.image(50, 490, 'player').setDisplaySize(64, 64);
   }
 
   update() {
+    let isRunning = this.input.keyboard.createCursorKeys().shift.isDown;
+    
     if (this.input.keyboard.createCursorKeys().left.isDown && player.x > 25) {
-      player.x -= vel;
+      player.x -= isRunning ? vel + extraVel : vel;
       player.flipX = false;
     } else if (this.input.keyboard.createCursorKeys().right.isDown && player.x < 1075) {
-      player.x += vel;
+      player.x += isRunning ? vel + extraVel : vel;
       player.flipX = true;
     }
 
     if (this.input.keyboard.createCursorKeys().up.isDown && player.y > 35) {
-      player.y -= vel;
+      player.y -= isRunning ? vel + extraVel : vel;
       player.flipY = false;
     } else if (this.input.keyboard.createCursorKeys().down.isDown && player.y < 490) {
-      player.y += vel;
+      player.y += isRunning ? vel + extraVel : vel;
       player.flipY = true;
     }
   }
