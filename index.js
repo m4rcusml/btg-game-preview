@@ -1,15 +1,14 @@
 const config = {
   type: Phaser.AUTO,
-  width: 1100,
-  height: 600,
+  width: 1920,
+  height: 1080,
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 500 },
       debug: false
     }
   },
-  scene: [MenuScene, MainScene],
+  scene: [MenuScene, MainScene, OptionsScene],
 };
 
 const game = new Phaser.Game(config);
