@@ -1,3 +1,6 @@
+/**
+ * EM CONSTRUÇÃO (ignore)
+ */
 class OptionsScene extends Phaser.Scene {
   constructor() {
     super({ key: 'options' });
