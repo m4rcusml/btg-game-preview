@@ -22,8 +22,6 @@ class MenuScene extends Phaser.Scene {
     // define textos, coordenadas e eventos dos botões do menu
     let buttons = [{ text: 'Jogar', y: 540, callback: () => this.scene.start('main') }];
 
-    const buttonHeight = 125;
-
     // adiciona os botões na tela
     buttons.forEach(button => {
       let buttonImage = this.add.image(960, button.y, 'bg-btn')
