@@ -32,7 +32,7 @@ class MainScene extends Phaser.Scene {
 
     // adiciona um grupo estático com colisão para as plataformas
     this.platforms = this.physics.add.staticGroup();
-    for (let x = 330; x < 1820; x += 360) { // adiciona plataformas horizontalmente do inicio ao fim da tela
+    for (let x = 330; x < 1120; x += 360) { // adiciona plataformas horizontalmente do inicio ao fim da tela
       this.platforms.create(x, 580, 'platform').refreshBody();
     }
 
