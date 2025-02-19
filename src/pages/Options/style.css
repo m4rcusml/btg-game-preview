@@ -13,6 +13,7 @@ div#optBox {
   background-color: #0007;
   border-radius: 1em;
   min-width: 300px;
+  font-size: 20px;
   color: white;
   padding: 1em;
 
@@ -29,4 +30,19 @@ div#optBox > div {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: .5em;
+}
+
+.field * {
+  flex: 1;
+}
+
+.field input[type="range"] {
+  flex: 3;
+  accent-color: blue;
 }
