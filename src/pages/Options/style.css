@@ -1,0 +1,32 @@
+#optContainer {
+  display: grid;
+  grid-template-areas: ". . ." ". opt ." ". . .";
+  grid-template-rows: 1fr 6fr 1fr;
+  grid-template-columns: 1fr 6fr 1fr;
+  background-image: url(../../assets/bgMenu.svg);
+  background-position: center center;
+  background-size: cover;
+}
+
+div#optBox {
+  grid-area: opt;
+  background-color: #0007;
+  border-radius: 1em;
+  min-width: 300px;
+  color: white;
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+div#optBox > button {
+  align-self: flex-start;
+}
+
+div#optBox > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}

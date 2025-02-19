@@ -10,8 +10,10 @@
 
 #menu > .buttons {
   grid-area: buttons;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "play play play" ". . .";
   gap: 1em;
   min-width: 300px;
 }
@@ -20,11 +22,6 @@
   flex: 1;
 }
 
-#menu > .buttons > div {
-  display: flex;
-  gap: 1em;
-}
-
-#menu > .buttons > div > button {
-  flex: 1;
+#menu > .buttons > *:nth-child(1) {
+  grid-area: play;
 }
