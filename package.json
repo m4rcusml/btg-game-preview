@@ -1,12 +1,12 @@
 {
-  "homepage": "https://m4rcusml.github.io/btg-game-preview",
+  "homepage": "http://m4rcusml.github.io/btg-game-preview",
   "name": "btg-game-preview",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build" ,
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
