@@ -1,0 +1,14 @@
+#menuBtn {
+  background-image: linear-gradient(to top, #3D34C9, #4790F5);
+  border: 4px solid #A9D6F6;
+  border-radius: 1em;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: transform 200ms;
+}
+
+#menuBtn:hover {
+  transform: scale(1.05);
+}

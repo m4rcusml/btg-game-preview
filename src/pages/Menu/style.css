@@ -1,0 +1,30 @@
+#menu {
+  display: grid;
+  grid-template-areas: ". . ." ". buttons ." ". . .";
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-image: url(../../assets/bgMenu.svg);
+  background-position: center center;
+  background-size: cover;
+}
+
+#menu > .buttons {
+  grid-area: buttons;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  min-width: 300px;
+}
+
+#menu > .buttons > * {
+  flex: 1;
+}
+
+#menu > .buttons > div {
+  display: flex;
+  gap: 1em;
+}
+
+#menu > .buttons > div > button {
+  flex: 1;
+}
