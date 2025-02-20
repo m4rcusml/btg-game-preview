@@ -3,7 +3,7 @@
   grid-template-areas: ". . ." ". buttons ." ". . .";
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  background-image: url(../../assets/bgMenu.svg);
+  background-image: url(../../assets/backgrounds/bgMenu.svg);
   background-position: center center;
   background-size: cover;
 }
