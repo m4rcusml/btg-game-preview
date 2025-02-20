@@ -15,11 +15,11 @@ const router = createBrowserRouter([
     // errorElement: <ErrorPage />,
     children: [
       {
-        path: '/',
+        path: 'btg-game-preview/',
         element: <Menu />,
       },
       {
-        path: 'options',
+        path: 'btg-game-preview/options',
         element: <Options />,
       }
     ]
