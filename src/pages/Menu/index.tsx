@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router';
 import { MenuButton } from '../../components/buttons/Menu';
-import logo from '../../assets/novaLogo.png';
+import logo from '../../assets/logo/logoGame.png';
 import './style.css';
 
 export function Menu() {
@@ -8,10 +8,8 @@ export function Menu() {
 
   return (
     <main id="menu">
-      <div className="logo">
-        <img src={logo} alt="Logo" />
-      </div>
-      
+      <img className="logo" src={logo} alt="Logo" />
+
       <div className="buttons">
         <MenuButton label='Play' />
 
