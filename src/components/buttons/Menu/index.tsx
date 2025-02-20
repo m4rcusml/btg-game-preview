@@ -1,7 +1,7 @@
 import './style.css';
 
 type Props = {
-  label: string;
+  label?: string;
   icon?: string;
   onClick?(): void;
 }
