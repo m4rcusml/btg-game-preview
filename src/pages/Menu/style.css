@@ -9,10 +9,15 @@ body {
   grid-template-areas: ". . ."". logo ." ". . . " ". buttons ." ". . .";
   grid-template-rows: .5fr .8fr .4fr .8fr 1fr;
   grid-template-columns: 1fr .8fr 1fr;
-  background-image: url(../../assets/backgrounds/bgMenu.svg);
   background-position: center center;
   background-size: cover;
   gap: 1em;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 5;
 }
 
 #menu > .buttons {
