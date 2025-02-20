@@ -3,7 +3,7 @@
   grid-template-areas: ". logo ." ". buttons ." ". . .";
   grid-template-rows: 1.2fr .8fr 1fr;
   grid-template-columns: 1fr .8fr 1fr;
-  background-image: url(../../assets/bgMenu.svg);
+  background-image: url(../../assets/backgrounds/bgMenu.svg);
   background-position: center center;
   background-size: cover;
   gap: 1em;
