@@ -7,8 +7,37 @@
   font-size: 1.5em;
   cursor: pointer;
   transition: transform 200ms;
+  background: linear-gradient(180deg, #3b82f6, #1e3a8a);
+  border: 3px solid #ABD5F5;
+  text-align: center;
+  box-shadow: 0px 5px 0px #1e3a8a;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.menuBtn {
+  display: block;
+  width: 220px;
+  padding: 15px;
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(180deg, #3b82f6, #1e3a8a);
+  border: 3px solid #ABD5F5;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0px 5px 0px #1e3a8a;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .menuBtn:hover {
-  transform: scale(.95);
+  transform: translateY(-3px) scale(.95);
+  box-shadow: 0px 8px 0px #1e3a8a;
+}
+
+.menuBtn:active {
+  transform: translateY(4px);
+  box-shadow: 0px 2px 0px #1e3a8a;
 }
