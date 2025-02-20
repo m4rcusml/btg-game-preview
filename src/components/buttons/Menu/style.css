@@ -4,15 +4,17 @@
   border-radius: 1em;
   color: white;
   font-weight: bold;
-  font-size: 1.5em;
   cursor: pointer;
   transition: transform 200ms;
   background: linear-gradient(180deg, #3b82f6, #1e3a8a);
   border: 3px solid #ABD5F5;
   text-align: center;
   box-shadow: 0px 5px 0px #1e3a8a;
+  text-shadow: 0px 2.5px 0px #282844;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
 
   display: flex;
   align-items: center;
@@ -20,9 +22,11 @@
 }
 
 .menuBtn {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 15px;
-  font-size: 22px;
+  font-size: 40px;
   font-weight: bold;
   color: white;
   background: linear-gradient(180deg, #3b82f6, #1e3a8a);
@@ -31,7 +35,7 @@
   text-align: center;
   box-shadow: 0px 5px 0px #1e3a8a;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   transition: all 0.2s ease-in-out;
 }
 
@@ -43,4 +47,12 @@
 .menuBtn:active {
   transform: translateY(4px);
   box-shadow: 0px 2px 0px #1e3a8a;
+}
+
+.menuBtn img {
+  width: 40px;
+  height: 40px;
+  user-select: none;
+  -webkit-user-select: none;
+  padding: none;
 }
