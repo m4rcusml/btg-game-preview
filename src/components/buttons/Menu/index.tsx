@@ -7,7 +7,7 @@ type Props = {
 
 export function MenuButton({ label, onClick }: Props) {
   return (
-    <button id='menuBtn' onClick={onClick}>
+    <button className='menuBtn' onClick={onClick}>
       <p>{label}</p>
     </button>
   )
