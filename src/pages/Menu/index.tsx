@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router';
 import { MenuButton } from '../../components/buttons/Menu';
 
 import logo from '../../assets/logo/logoGame.png';
-import ParallaxBackground from '../../components/ParallaxBackground';
 import optionsIcon from '../../assets/icons/optionsIcon.png';
 import portIcon from '../../assets/icons/portIcon.png';
 import engIcon from '../../assets/icons/engIcon.png';
@@ -21,21 +20,18 @@ export function Menu() {
   }
 
   return (
-    <>
-      <ParallaxBackground />
-      <main id="menu">
-        <img className="logo" src={logo} alt="Logo" />
+    <main id="menu">
+      <img className="logo" src={logo} alt="Logo" />
 
-        <div className="buttons">
-          <MenuButton icon={playIcon} onClick={() => navigate('game')} />
+      <div className="buttons">
+        <MenuButton icon={playIcon} onClick={() => navigate('game')} />
 
-          <div className='bottom'>
-            <MenuButton icon={optionsIcon} squared onClick={() => navigate('options')} />
-            <MenuButton icon={isPortuguese ? portIcon : engIcon} squared onClick={handleChangeIcon} />
-            <MenuButton icon={leaveIcon} squared onClick={() => window.close()} />
-          </div>
+        <div className='bottom'>
+          <MenuButton icon={optionsIcon} squared onClick={() => navigate('options')} />
+          <MenuButton icon={isPortuguese ? portIcon : engIcon} squared onClick={handleChangeIcon} />
+          <MenuButton icon={leaveIcon} squared onClick={() => window.close()} />
         </div>
-      </main>
-    </>
+      </div>
+    </main>
   )
 }

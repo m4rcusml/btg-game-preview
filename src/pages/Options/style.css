@@ -3,7 +3,6 @@
   grid-template-areas: ". . ." ". opt ." ". . .";
   grid-template-rows: 1fr 6fr 1fr;
   grid-template-columns: 1fr 6fr 1fr;
-  background-image: url(../../assets/backgrounds/bgMenu.svg);
   background-position: center center;
   background-size: cover;
 }
@@ -39,30 +38,88 @@ div#optBox > div::-webkit-scrollbar {
   display: none;
 }
 
-.field {
+.slider-container {
+  height: calc(var(--slider-height) * 1.5);
+  max-width: 400px;
   display: flex;
-  flex-direction: column;
+  flex: 1;
+}
+
+.slider {
+  /* slider */
+  --slider-width: 100%;
+  --slider-height: 15px;
+  --slider-bg: rgb(110, 110, 110);
+  --slider-border-radius: 999px;
+  /* level */
+  --level-color: #3A81F4;
+  --level-transition-duration: .1s;
+}
+
+.slider {
+  flex: 1;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+}
+
+.slider .level {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: var(--slider-width);
+  height: var(--slider-height);
+  background: var(--slider-bg);
+  overflow: hidden;
+  border-radius: var(--slider-border-radius);
+  -webkit-transition: height var(--level-transition-duration);
+  -o-transition: height var(--level-transition-duration);
+  transition: height var(--level-transition-duration);
+  cursor: inherit;
+}
+
+.slider .level::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 0;
+  height: 0;
+  -webkit-box-shadow: -200px 0 0 200px var(--level-color);
+  box-shadow: -200px 0 0 200px var(--level-color);
+}
+
+.slider:hover .level {
+  height: calc(var(--slider-height) * 1.5);
+}
+
+div#optBox > .fields {
+  width: 80%;
+  align-self: center;
+  justify-content: stretch;
+}
+
+div#optBox > .fields  div.field {
+  display: flex;
+  justify-content: space-between;
   gap: .5em;
 }
 
-.field input[type="range"] {
-  flex: 3;
-  accent-color: rgb(0, 106, 255);
-  width: 75%;
-}
-
-div#optBox > div > div:not(.field) {
+div#optBox > .fields > div:not(.field) {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  width: 80%;
   align-self: center;
-  gap: 1em;
+  gap: .5em;
   margin-top: auto;
 }
 
-div#optBox > div > div > .menuBtn {
+div#optBox > .fields > .bottom > .menuBtn {
   flex: 1;
   flex-basis: 45%;
   height: 55px;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import './style.css';
 import { MenuButton } from '../../components/buttons/Menu';
+import './style.css';
 
 export function Options() {
   const navigate = useNavigate();
@@ -19,38 +19,49 @@ export function Options() {
       <div id="optBox">
         <button onClick={() => navigate(-1)}>Voltar para o menu</button>
 
-        <div>
+        <div className='fields'>
           <div className='field'>
             <label htmlFor="mainVolume">Volume principal:</label>
-            <input
-              type="range"
-              id='mainVolume'
-              min={0}
-              max={100}
-              value={gameState.mainVolume}
-              onChange={e => setGameState(prevState => ({
-                ...prevState,
-                mainVolume: parseInt(e.target.value, 10)
-              }))}
-            />
+
+            <div className="slider-container">
+              <label className="slider">
+                <input
+                  type="range"
+                  className="level"
+                  id='mainVolume'
+                  min={0}
+                  max={100}
+                  value={gameState.mainVolume}
+                  onChange={e => setGameState(prevState => ({
+                    ...prevState,
+                    mainVolume: parseInt(e.target.value, 10)
+                  }))}
+                />
+              </label>
+            </div>
           </div>
 
           <div className='field'>
             <label htmlFor="musicVolume">Volume da música:</label>
-            <input
-              type="range"
-              id='musicVolume'
-              min={0}
-              max={100}
-              value={gameState.musicVolume}
-              onChange={e => setGameState(prevState => ({
-                ...prevState,
-                musicVolume: parseInt(e.target.value, 10)
-              }))}
-            />
+            <div className="slider-container"> 
+              <label className="slider">
+                <input
+                  type="range"
+                  className="level"
+                  id='musicVolume'
+                  min={0}
+                  max={100}
+                  value={gameState.musicVolume}
+                  onChange={e => setGameState(prevState => ({
+                    ...prevState,
+                    musicVolume: parseInt(e.target.value, 10)
+                  }))}
+                />
+              </label>
+            </div>
           </div>
 
-          <div>
+          <div className='bottom'>
             <MenuButton label='Créditos' />
             <MenuButton label='Feedback' />
             <MenuButton label='Ajuda' />
@@ -60,4 +71,3 @@ export function Options() {
     </main>
   );
 }
-
