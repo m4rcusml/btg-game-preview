@@ -1,47 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap');
-
 body {
-  font-family: 'Changa One', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 #menu {
   display: grid;
-  grid-template-areas: ". . ."". logo ." ". . . " ". buttons ." ". . .";
-  grid-template-rows: .5fr .8fr .4fr .8fr 1fr;
-  grid-template-columns: 1fr .8fr 1fr;
-  background-position: center center;
-  background-size: cover;
-  gap: 1em;
+  grid-template-areas: 
+    ". . ."
+    ". logo ."
+    ". . ."
+    ". buttons ."
+    ". . .";
+  grid-template-rows: 4fr auto 2fr auto 6fr;
+  grid-template-columns: 1fr minmax(17vw, 22vw) 1fr;
+  gap: clamp(0.5em, 2vw, 2em);
+  padding: 2vh;
 }
 
 #menu > .buttons {
   grid-area: buttons;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: clamp(0.5em, 1.5vw, 1.5em);
 }
 
 #menu > .buttons > .bottom {
   display: flex;
   justify-content: space-between;
-  gap: 1em;
+  gap: 0.5vw
 }
 
-#menu > .buttons > .menuBtn:nth-of-type(1) {
-  grid-area: play;
-  justify-self: stretch;
-  max-height: 90px;
+#menu > .buttons > .menuBtn {
+  /* height: clamp(80px, 12vh, 140px); */
+  /* width: auto; */
+  width: clamp(10px, 22vw, 800px);
+  height: auto;
 }
-
-#menu > .buttons > .bottom > .menuBtn {
-  height: 90px;
-  width: 90px;
-}
-
 
 #menu > .logo {
   grid-area: logo;
   align-self: center;
   justify-self: center;
-  width: 300px;
+  width: clamp(150px, 20vw, 400px);
 }
